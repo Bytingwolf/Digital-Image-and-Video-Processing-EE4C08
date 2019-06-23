@@ -1,0 +1,11 @@
+Y = imread('D:\Docs\Study\Digital Image and Video Processing\image_stills\girlface.bmp');
+%figure(1);imshow(Y);
+I = calcHaarLevel1(Y);
+Q_step = 43;
+I = Q_step*round(I/Q_step);
+lolo = calcEntropy(I(1:256,1:256));
+hilo = calcEntropy(I(257:512,1:256));
+lohi = calcEntropy(I(1:256,257:512));
+hihi = calcEntropy(I(257:512,257:512));
+E = (lolo + hilo + lohi + hihi)/4;
+disp(E);
